@@ -214,7 +214,7 @@ class _PackageDetailScreenState extends State<PackageDetailScreen> {
         ),
       ),
     );
-  }
+  } 
 
   Widget _buildInfoItem(IconData icon, String value, String label) {
     return Column(
