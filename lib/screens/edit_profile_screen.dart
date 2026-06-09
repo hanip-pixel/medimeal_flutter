@@ -30,7 +30,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Future<void> _updateProfile() async {
     if (_nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Nama tidak boleh kosong'), backgroundColor: Colors.red),
+        const SnackBar(
+          content: Text('Nama tidak boleh kosong'),
+          backgroundColor: Colors.red,
+        ),
       );
       return;
     }
@@ -47,12 +50,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       if (response['success'] == true) {
         await authProvider.refreshUser();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Profil berhasil diupdate'), backgroundColor: Colors.green),
+          const SnackBar(
+            content: Text('Profil berhasil diupdate'),
+            backgroundColor: Colors.green,
+          ),
         );
         Navigator.pop(context);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(response['message'] ?? 'Gagal update profil'), backgroundColor: Colors.red),
+          SnackBar(
+            content: Text(response['message'] ?? 'Gagal update profil'),
+            backgroundColor: Colors.red,
+          ),
         );
       }
     } catch (e) {
@@ -99,7 +108,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       color: const Color(0xFF2E7D32).withOpacity(0.1),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.person, size: 50, color: Color(0xFF2E7D32)),
+                    child: const Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Color(0xFF2E7D32),
+                    ),
                   ),
                   const SizedBox(height: 24),
                   TextField(
@@ -107,7 +120,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(
                       labelText: 'Nama Lengkap',
                       hintText: 'Masukkan nama lengkap',
-                      prefixIcon: const Icon(Icons.person_outline, color: Color(0xFF2E7D32)),
+                      prefixIcon: const Icon(
+                        Icons.person_outline,
+                        color: Color(0xFF2E7D32),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
@@ -124,15 +140,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF2E7D32),
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
                       child: _isLoading
                           ? const SizedBox(
                               height: 20,
                               width: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
                             )
-                          : const Text('Simpan Perubahan', style: TextStyle(fontSize: 16)),
+                          : const Text(
+                              'Simpan Perubahan',
+                              style: TextStyle(fontSize: 16),
+                            ),
                     ),
                   ),
                 ],
@@ -144,5 +168,3 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 }
-
- 
